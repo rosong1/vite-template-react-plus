@@ -1,23 +1,43 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "importHelpers": true,
+    "target": "es6",
+    "strictNullChecks": true,
+    "module": "esnext",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "jsx": "react-jsx",
-    "esModuleInterop": true,
+    "allowJs": true,
     "sourceMap": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
     "strict": true,
+    "types": [
+      "src/jce",
+    ],
     "paths": {
-      "app/*": ["./src/app/*"],
-      "components/*": ["./src/components/*"],
-      "hooks/*": ["./src/hooks/*"],
-      "layouts/*": ["./src/layouts/*"],
-      "shared/*": ["./src/shared/*"],
-      "styles/*": ["./src/styles/*"]
-    },
-    "allowSyntheticDefaultImports": true
+      "@/*": [
+        "./src/*"
+      ],
+    }
   },
-  "include": ["src", "types"]
+  "include": [
+    "src",
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    "scripts",
+    "jest"
+  ]
 }
