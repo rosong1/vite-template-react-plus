@@ -4,7 +4,12 @@ import legacy from "@vitejs/plugin-legacy";
 import tsconfigPaths from "vite-tsconfig-paths";
 import reactJsx from "vite-react-jsx";
 import { visualizer } from "rollup-plugin-visualizer";
-import { resolve } from 'path';
+import checker from "vite-plugin-checker";
+import { resolve } from "path";
+
+// postcss
+import autoprefixer from "autoprefixer";
+import pxtorem from "postcss-pxtorem";
 
 const defineConfig: UserConfigFn = ({ command, mode }) => {
   const config = {
@@ -16,10 +21,22 @@ const defineConfig: UserConfigFn = ({ command, mode }) => {
         additionalLegacyPolyfills: ["regenerator-runtime/runtime"],
       }),
       reactJsx(),
+      checker({ typescript: true }),
     ],
     resolve: {
       alias: {
-        '@': resolve('./src'),
+        "@": resolve("./src"),
+      }
+    },
+    css: {
+      postcss: {
+        plugins: [
+          autoprefixer,
+          pxtorem({
+            rootValue: 37.5,
+            propList: ["*"],
+          })
+        ]
       }
     }
   };

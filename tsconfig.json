@@ -22,7 +22,6 @@
     "noImplicitAny": false,
     "strict": true,
     "types": [
-      "src/jce",
     ],
     "paths": {
       "@/*": [
