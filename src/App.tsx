@@ -1,8 +1,10 @@
 import * as React from "react";
 import { TEXT } from "@/utils";
+import '@/global.scss';
+
 export default function App(): JSX.Element {
   React.useEffect(() => {
-    document.title = import.meta.env.VITE_TITLE;
+    document.title = import.meta.env.VITE_TITLE as string;
   }, []);
   return (
     <>

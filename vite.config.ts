@@ -4,6 +4,8 @@ import legacy from "@vitejs/plugin-legacy";
 import tsconfigPaths from "vite-tsconfig-paths";
 import reactJsx from "vite-react-jsx";
 import { visualizer } from "rollup-plugin-visualizer";
+import { resolve } from 'path';
+
 const defineConfig: UserConfigFn = ({ command, mode }) => {
   const config = {
     plugins: [
@@ -15,11 +17,11 @@ const defineConfig: UserConfigFn = ({ command, mode }) => {
       }),
       reactJsx(),
     ],
-    // rollupOptions: {
-    //   input: {
-    //     main: resolve(__dirname, "index.html"),
-    //   },
-    // },
+    resolve: {
+      alias: {
+        '@': resolve('./src'),
+      }
+    }
   };
   if (mode === "analyze") {
     config.plugins.push(
